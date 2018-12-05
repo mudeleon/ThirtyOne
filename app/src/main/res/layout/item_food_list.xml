@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    >
+<data>
+
+    <import type="android.view.View" />
+
+    <variable
+        name="view"
+        type="thirtyone.com.thiryone.ui.inventory.InventoryListView" />
+
+    <variable
+        name="food"
+        type="thirtyone.com.thiryone.model.data.Food" />
+
+    <variable
+        name="contentVisible"
+        type="boolean" />
+
+</data>
+    <android.support.design.widget.CoordinatorLayout
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/foodListLinear"
+            android:clickable="true"
+            android:focusable="true"
+            android:orientation="vertical">
+
+    <android.support.v7.widget.CardView
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:id="@+id/foodCardView"
+        app:cardCornerRadius="5dp">
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:background="@color/black"
+                    android:id="@+id/foodListImage"
+                     />
+        </LinearLayout>
+
+
+    </android.support.v7.widget.CardView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:weightSum="1"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight=".3"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="3dp"
+                android:layout_height="match_parent">
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text='@{food.foodId+""}'
+                    android:gravity="center"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Title"
+                    android:textColor="@color/colorAccent" />
+
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight=".7"
+                android:orientation="vertical"
+                android:padding="3dp"
+                android:layout_height="wrap_content">
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@{food.foodName}"
+                    android:maxLines="2"
+                    android:ellipsize="end"
+                    android:layout_marginLeft="3dp"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Title"
+                    android:textColor="@color/black" />
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text='@{food.foodType}'
+                    android:drawablePadding="1dp"
+                    android:maxLines="2"
+                    android:ellipsize="end"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Body1"
+                    android:textColor="@color/black" />
+
+
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        </LinearLayout>
+
+        <android.support.design.widget.FloatingActionButton
+            android:layout_height="50dp"
+            android:layout_width="50dp"
+            app:layout_anchor="@id/foodCardView"
+            app:layout_anchorGravity="right|end|bottom"
+            app:fabSize="normal"
+            android:src="@drawable/ic_delete"
+            android:layout_marginRight="75dp"
+            android:scaleType="center"
+            android:id="@+id/foodListDelete"
+            android:clickable="true"/>
+
+
+        <android.support.design.widget.FloatingActionButton
+            android:layout_height="50dp"
+            android:layout_width="50dp"
+            app:layout_anchor="@id/foodCardView"
+            app:layout_anchorGravity="right|end|bottom"
+            app:fabSize="normal"
+            android:layout_margin="16dp"
+            android:tint="@color/white"
+            android:src="@drawable/ic_edit"
+            android:scaleType="center"
+            android:id="@+id/foodListEdit"
+            android:clickable="true"/>
+
+
+
+    </android.support.design.widget.CoordinatorLayout>
+</layout>
